@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-const { writeFile } = require("fs");
-const shapesJS = require('./lib/shapes');
+const { writeFile } = require("fs").promises;
+const {shapesJS} = require('./lib/shapes');
 //const canvas = require("svg-canvas");
 
 const promptUser = () => {
@@ -13,7 +13,7 @@ const promptUser = () => {
     {
       type: "input",
       message: "Choose a text color",
-      name: "text-color",
+      name: "textcolor",
     },
     {
       type: "list",
@@ -24,7 +24,7 @@ const promptUser = () => {
     {
       type: "input",
       message: "Choose a shape color",
-      name: "shape-color",
+      name: "shapecolor",
     },
   ]);
 };
@@ -33,7 +33,7 @@ const promptUser = () => {
         promptUser()
         .then((answers) => writeFile('logo.svg', shapesJS(answers)))
         .then(() => console.log('Successfully created file'))
-        .then(() => console.error(err))
+        .then((err) => console.error(err))
     };
 
     init();

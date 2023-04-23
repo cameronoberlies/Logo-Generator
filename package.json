@@ -4,7 +4,12 @@
     "inquirer": "^8.2.4",
     "svg-canvas": "^1.0.2"
   },
+  "scripts": {
+    "start": "node index.js", 
+    "test": "jest lib/shapes.test.js"
+  },
   "devDependencies": {
     "jest": "^29.5.0"
   }
+
 }
