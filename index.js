@@ -32,7 +32,7 @@ const promptUser = () => {
     const init = () => {
         promptUser()
         .then((answers) => writeFile('logo.svg', shapesJS(answers)))
-        .then(() => console.log('Successfully created file'))
+        .then(() => console.log('Generated logo.svg'))
         .then((err) => console.error(err))
     };
 
